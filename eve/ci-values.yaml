@@ -82,8 +82,8 @@ global:
 
 cloudserver:
   image:
-    repository: zenko/cloudserver
-    tag: 8.1.3
+    repository: tmacro/cloudserver
+    tag: azure-test
     pullPolicy: Always
   replicaCount: 3
   replicaFactor: 1
