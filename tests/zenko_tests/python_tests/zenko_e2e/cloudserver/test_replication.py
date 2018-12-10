@@ -10,6 +10,7 @@ logging.basicConfig(level=logging.INFO,
                     datefmt='%S')
 
 
+@pytest.mark.skip(reason='Disabled for dev')
 @pytest.mark.flaky(reruns=3)
 @pytest.mark.parametrize('datafile', [testfile, mpufile])
 @pytest.mark.conformance
@@ -21,6 +22,7 @@ def test_aws_1_1(aws_crr_bucket, aws_crr_target_bucket, objkey, datafile):
         objkey, data, aws_crr_bucket, aws_crr_target_bucket, timeout=120)
 
 
+@pytest.mark.skip(reason='Disabled for dev')
 @pytest.mark.flaky(reruns=3)
 @pytest.mark.parametrize('datafile', [testfile, mpufile])
 @pytest.mark.conformance
@@ -44,6 +46,7 @@ def test_azure_1_1(
         objkey, data, azure_crr_bucket, azure_crr_target_bucket, timeout=120)
 
 
+@pytest.mark.skip(reason='Disabled for dev')
 @pytest.mark.parametrize('datafile', [testfile, mpufile])
 @pytest.mark.conformance
 def test_ceph_1_1(
@@ -71,6 +74,7 @@ def test_wasabi_1_1(wasabi_crr_bucket,
         timeout=30)
 
 
+@pytest.mark.skip(reason='Disabled for dev')
 @pytest.mark.flaky(reruns=1)
 @pytest.mark.parametrize('datafile', [testfile, mpufile])
 @pytest.mark.conformance

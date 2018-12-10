@@ -3,6 +3,7 @@ from ..fixtures import *
 from .. import util
 
 
+@pytest.mark.skip(reason='Disabled for dev')
 @pytest.mark.flaky(reruns=3)
 @pytest.mark.conformance
 def test_mpu_aws(aws_ep_bucket, aws_target_bucket, mpufile, objkey):
@@ -14,6 +15,7 @@ def test_mpu_aws(aws_ep_bucket, aws_target_bucket, mpufile, objkey):
         objkey, mpufile, aws_ep_bucket, aws_target_bucket, timeout=60)
 
 
+@pytest.mark.skip(reason='Disabled for dev')
 @pytest.mark.flaky(reruns=3)
 @pytest.mark.conformance
 def test_mpu_gcp(gcp_ep_bucket, gcp_target_bucket, mpufile, objkey):
@@ -36,6 +38,7 @@ def test_mpu_azure(azure_ep_bucket, azure_target_bucket, mpufile, objkey):
         objkey, mpufile, azure_ep_bucket, azure_target_bucket, timeout=60)
 
 
+@pytest.mark.skip(reason='Disabled for dev')
 @pytest.mark.conformance
 def test_mpu_ceph(ceph_ep_bucket, ceph_target_bucket, mpufile, objkey):
     util.mark_test('CEPH MPU UPLOAD')

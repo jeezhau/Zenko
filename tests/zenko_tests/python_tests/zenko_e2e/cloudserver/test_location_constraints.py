@@ -10,6 +10,7 @@ logging.basicConfig(level=logging.INFO,
                     datefmt='%S')
 
 
+@pytest.mark.skip(reason='Disabled for dev')
 @pytest.mark.conformance
 def test_aws_storage(aws_loc_bucket, aws_target_bucket, testfile, objkey):
     util.mark_test('AWS STORAGE LOCATION CONSTRAINT')
@@ -21,6 +22,7 @@ def test_aws_storage(aws_loc_bucket, aws_target_bucket, testfile, objkey):
         objkey, testfile, aws_loc_bucket, aws_target_bucket)
 
 
+@pytest.mark.skip(reason='Disabled for dev')
 @pytest.mark.conformance
 def test_gcp_storage(gcp_loc_bucket, gcp_target_bucket, testfile, objkey):
     util.mark_test('GCP STORAGE LOCATION CONSTRAINT')
@@ -44,6 +46,7 @@ def test_azure_storage(
         objkey, testfile, azure_loc_bucket, azure_target_bucket)
 
 
+@pytest.mark.skip(reason='Disabled for dev')
 @pytest.mark.conformance
 def test_ceph_storage(
         ceph_loc_bucket, ceph_target_bucket, testfile, objkey):

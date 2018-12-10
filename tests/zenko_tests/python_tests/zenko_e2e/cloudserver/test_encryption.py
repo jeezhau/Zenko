@@ -2,6 +2,7 @@ from zenko_e2e.fixtures import *
 import zenko_e2e.util as util
 
 
+@pytest.mark.skip(reason='Disabled for dev')
 def test_serverside_encryption(
         encrypted_bucket, aws_target_bucket, testfile, objkey):
     encrypted_bucket.put_object(

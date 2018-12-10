@@ -4,6 +4,7 @@ import zenko_e2e.util as util
 from ..fixtures import *
 
 
+@pytest.mark.skip(reason='Disabled for dev')
 @pytest.mark.conformance
 def test_ring_storage(zenko_bucket, testfile, objkey):
     util.mark_test('RING STORAGE DEFAULT EP LOCATION')
@@ -15,6 +16,7 @@ def test_ring_storage(zenko_bucket, testfile, objkey):
     assert util.check_object(objkey, testfile, zenko_bucket)
 
 
+@pytest.mark.skip(reason='Disabled for dev')
 @pytest.mark.conformance
 def test_aws_storage(aws_ep_bucket, aws_target_bucket, testfile, objkey):
     util.mark_test('AWS STORAGE DEFAULT EP LOCATION')
@@ -27,6 +29,7 @@ def test_aws_storage(aws_ep_bucket, aws_target_bucket, testfile, objkey):
         objkey, testfile, aws_ep_bucket, aws_target_bucket)
 
 
+@pytest.mark.skip(reason='Disabled for dev')
 @pytest.mark.conformance
 def test_gcp_storage(gcp_ep_bucket, gcp_target_bucket, testfile, objkey):
     util.mark_test('GCP STORAGE DEFAULT EP LOCATION')
@@ -51,6 +54,7 @@ def test_azure_storage(azure_ep_bucket, azure_target_bucket, testfile, objkey):
         objkey, testfile, azure_ep_bucket, azure_target_bucket)
 
 
+@pytest.mark.skip(reason='Disabled for dev')
 @pytest.mark.conformance
 def test_ceph_storage(ceph_ep_bucket, ceph_target_bucket, testfile, objkey):
     util.mark_test('CEPH STORAGE DEFAULT EP LOCATION')

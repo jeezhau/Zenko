@@ -48,6 +48,7 @@ def get_xml_namespace(elem):
     return match.group(0) if match else ''
 
 
+@pytest.mark.skip(reason='Disabled for dev')
 @pytest.mark.conformance
 def test_metadata_search(metadata_multi, s3auth):
     util.mark_test('SEARCH METADATA')
