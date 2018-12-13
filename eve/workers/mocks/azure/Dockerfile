@@ -16,7 +16,10 @@ RUN apk add -U --no-cache python3 ca-certificates git \
     && mkdir -p /usr/src/app
 
 WORKDIR /usr/src/app
-RUN git clone https://github.com/tmacro/Azurite.git /usr/src/app \
+RUN git clone https://github.com/Azure/Azurite.git /usr/src/app \
+    # Fetch and checkout our PR until its merged
+    && git fetch origin pull/139/head:patched \
+    && git checkout patched \
     && npm install
 
 ADD docker-entrypoint.sh /
