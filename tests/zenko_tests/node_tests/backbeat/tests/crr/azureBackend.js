@@ -94,11 +94,16 @@ describe('Replication with Azure backend', function() {
     'the source object', done => series([
         next => { process.stdout.write(srcBucket + '/' + key + '\n'); next()},
         next => utils.putObject(srcBucket, key, Buffer.alloc(1), next),
+        next => { process.stdout.write('1' + '\n'); next()},
         next => utils.compareObjectsAzure(srcBucket, destContainer, key, next),
+        next => { process.stdout.write('2' + '\n'); next()},
         next => utils.deleteObject(srcBucket, key, null, next),
+        next => { process.stdout.write('3' + '\n'); next()},
         next => utils.assertNoObject(srcBucket, key, next),
+        next => { process.stdout.write('4' + '\n'); next()},
         next => utils.waitUntilDeleted(destContainer, `${srcBucket}/${key}`,
             'azure', next),
+        next => { process.stdout.write('5' + '\n'); next()},
         next => utils.getBlobToText(destContainer, `${srcBucket}/${key}`,
             err => {
                 process.stdout.write(JSON.stringify(err) + '\n');
