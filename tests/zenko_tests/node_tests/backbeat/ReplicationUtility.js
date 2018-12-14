@@ -551,7 +551,9 @@ class ReplicationUtility {
         const expectedCode = client === 'azure' ? 'BlobNotFound' : 'NoSuchKey';
         return async.doWhilst(callback =>
             this[method](bucketName, key, err => {
+                process.stdout.write(JSON.stringify(err));
                 if (err && err.code !== expectedCode) {
+                    process.stdout.write("Doesn't match");
                     return callback(err);
                 }
                 objectExists = err === null;
