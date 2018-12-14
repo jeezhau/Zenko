@@ -24,7 +24,7 @@ const keyutf8 = `${keyPrefix}/%EA%9D%8B崰㈌㒈保轖䳷䀰⺩ቆ楪秲ⴝ㿅�
 const REPLICATION_TIMEOUT = 300000;
 
 // tags('flaky') // Tracking via ZENKO-1036
-describe('Replication with Azure backend', function() {
+describe.only('Replication with Azure backend', function() {
     this.timeout(REPLICATION_TIMEOUT);
     this.retries(3);
     let roleArn = 'arn:aws:iam::root:role/s3-replication-role';
@@ -92,6 +92,7 @@ describe('Replication with Azure backend', function() {
 
     it('should delete the destination object when putting a delete marker on ' +
     'the source object', done => series([
+        next => { process.stdout.write(srcBucket + '/' + key + '\n'); next()},
         next => utils.putObject(srcBucket, key, Buffer.alloc(1), next),
         next => utils.compareObjectsAzure(srcBucket, destContainer, key, next),
         next => utils.deleteObject(srcBucket, key, null, next),
