@@ -2,6 +2,7 @@ const assert = require('assert');
 const crypto = require('crypto');
 const async = require('async');
 const fs = require('fs');
+const xml2js = require('xml2js');
 
 const { scalityS3Client, awsS3Client } = require('../s3SDK');
 
@@ -553,8 +554,16 @@ class ReplicationUtility {
             this[method](bucketName, key, err => {
                 process.stdout.write(JSON.stringify(err) + '\n');
                 if (err && err.code !== expectedCode) {
-                    process.stdout.write("Doesn't match");
-                    return callback(err);
+                    if (client !== 'azure') {
+                        return callback(err);
+                    }
+                    // The azure mock fails to return the correct
+                    // Content-Type for this error causing the SDK to
+                    // incorrectly parse it, leaving err.code as undefined.
+                    // So check to see if err.message contains expectedCode
+                    if (err.message.indexOf(expectedCode) === -1) {
+                        return callback(err);
+                    }
                 }
                 objectExists = err === null;
                 if (!objectExists) {
