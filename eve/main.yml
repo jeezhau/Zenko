@@ -54,13 +54,13 @@ models:
       GCP_ACCESS_KEY_2: '%(secret:aws_gcp_backend_access_key_2)s'
       GCP_SECRET_KEY_2: '%(secret:aws_gcp_backend_secret_key_2)s'
 
-      AZURE_ACCOUNT_NAME: '%(secret:azure_backend_account_name)s'
-      AZURE_BACKEND_ENDPOINT: '%(secret:azure_backend_endpoint)s'
-      AZURE_SECRET_KEY: '%(secret:azure_backend_access_key)s'
+      # AZURE_ACCOUNT_NAME: '%(secret:azure_backend_account_name)s'
+      # AZURE_BACKEND_ENDPOINT: '%(secret:azure_backend_endpoint)s'
+      # AZURE_SECRET_KEY: '%(secret:azure_backend_access_key)s'
 
-      # AZURE_ACCOUNT_NAME: devstoreaccount1
-      # AZURE_BACKEND_ENDPOINT: http://azure-mock/devstoreaccount1
-      # AZURE_SECRET_KEY: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
+      AZURE_ACCOUNT_NAME: devstoreaccount1
+      AZURE_BACKEND_ENDPOINT: http://azure-mock/devstoreaccount1
+      AZURE_SECRET_KEY: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 
       AZURE_ACCOUNT_NAME_2: '%(secret:azure_backend_account_name_2)s'
       AZURE_BACKEND_ENDPOINT_2: '%(secret:azure_backend_endpoint_2)s'
